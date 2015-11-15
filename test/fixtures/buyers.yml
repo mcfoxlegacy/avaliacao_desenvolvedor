@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  nome: MyString
+buyer1:
+  name: Buyer 1
 
-two:
-  nome: MyString
+buyer2:
+  name: Buyer 2

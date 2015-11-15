@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  address: MyString
+supplier1:
+  name: Supplier 1
+  address: 171 Fake Street
 
-two:
-  name: MyString
-  address: MyString
+supplier2:
+  name: Supplier 2
+  address: 002 Random Street

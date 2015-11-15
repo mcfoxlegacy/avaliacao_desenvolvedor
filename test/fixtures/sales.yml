@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  buyer_id: 
-  description: MyString
-  price: 9.99
-  quantity: 1
-  supplier_id: 
+  buyer: buyer1 
+  description: My description 1
+  price: 19.99
+  quantity: 3
+  supplier: supplier1
 
 two:
-  buyer_id: 
-  description: MyString
-  price: 9.99
-  quantity: 1
-  supplier_id: 
+  buyer: buyer2
+  description: My description 2
+  price: 2.0
+  quantity: 4
+  supplier: supplier2
