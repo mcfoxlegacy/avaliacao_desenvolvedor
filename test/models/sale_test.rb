@@ -2,8 +2,21 @@
 require 'test_helper'
 
 class SaleTest < ActiveSupport::TestCase
+  def file
+    <<eof
+Comprador	descrição	Preço Uniário	Quantidade	Endereço	Fornecedor
+João Silva	R$10 off R$20 of food	10.0	2	987 Fake St	Bob's Pizza
+Amy Pond	R$30 of awesome for R$10	10.0	5	456 Unreal Rd	Tom's Awesome Shop
+Marty McFly	R$20 Sneakers for R$5	5.0	1	123 Fake St	Sneaker Store Emporium
+Snake Plissken	R$20 Sneakers for R$5	5.0	4	123 Fake St	Sneaker Store Emporium
+eof
+  end
+
+  def line
+    "João Silva	R$10 off R$20 of food	10.0	2	987 Fake St	Bob's Pizza"
+  end
+
   def test_import
-    line = "João Silva	R$10 off R$20 of food	10.0	2	987 Fake St	Bob's Pizza"
     sale = Sale.new
     sale.import(line)
     assert_equal(sale.buyer.name, 'João Silva')
@@ -12,5 +25,15 @@ class SaleTest < ActiveSupport::TestCase
     assert_equal(sale.quantity, 2)
     assert_equal(sale.supplier.address, '987 Fake St')
     assert_equal(sale.supplier.name, "Bob's Pizza")
+  end
+
+  def test_import_file
+    sales_count = Sale.all.count
+    Sale.import_file(file)
+    assert_equal(sales_count + 4, Sale.all.count)
+
+    sale = Sale.last
+    assert_equal('Snake Plissken', sale.buyer.name)
+    assert_equal('R$20 Sneakers for R$5', sale.description)
   end
 end
