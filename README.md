@@ -22,9 +22,10 @@ Sua aplicação web DEVE:
 3. Exibir todos os registros importados, bem como a receita bruta total dos registros contidos no arquivo enviado após o upload + parser.
 4. Se sua vaga é para Ruby e Ruby On Rails, ser escrita obrigatoriamente em: Ruby 2.1+ Rails 4 e SQLite 
 5. Se sua vaga é para .Net ser escrita obrigatoriamente em: VB# ou C#, última versão, SQL Server (pode ser express) 
-6. Ser simples de configurar e rodar a partir das instruções fornecidas, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
-7. Ter um teste de model e controller automatizado para a funcionalidade pedida
-8. Ter uma boa aparecia e ser fácil de usar
+6. Ser simples de configurar e rodar a partir das instruções fornecidas, 
+7. funcionando em ambiente compatível com Unix (Linux ou Mac OS X) para Ruby On Rails e Windows para .Net. Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
+8. Ter um teste de model e controller automatizado para a funcionalidade pedida
+9. Ter uma boa aparecia e ser fácil de usar
 
 ## Avaliação
 Seu projeto será avaliado de acordo com os seguintes critérios. 
