@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SalesController < ApplicationController
   before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
@@ -24,16 +25,10 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    @sale = Sale.new(sale_params)
+    Sale.import_file(params[:sale][:upload_file].read)
 
     respond_to do |format|
-      if @sale.save
-        format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
-        format.json { render :show, status: :created, location: @sale }
-      else
-        format.html { render :new }
-        format.json { render json: @sale.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to sales_url, notice: 'The file was successfully imported.' }
     end
   end
 
@@ -69,6 +64,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:buyer_id, :description, :price, :quantity, :supplier_id)
+      params.require(:sale).permit(:upload_file)
     end
 end

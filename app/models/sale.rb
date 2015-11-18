@@ -1,6 +1,9 @@
+# -*- encoding : utf-8 -*-
 class Sale < ActiveRecord::Base
   belongs_to :buyer
   belongs_to :supplier
+
+  attr_accessor :upload_file
 
   # Splits the sale line and creates a sale object
   def import(line)

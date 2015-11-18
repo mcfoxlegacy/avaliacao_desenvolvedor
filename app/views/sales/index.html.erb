@@ -2,6 +2,15 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
+<div>
+  <%= form_for :sale, url: sales_path, html: { multipart: true } do |form| %>
+    <%= form.label :upload_file, 'File to Upload' %>
+    <%= form.file_field :upload_file %>
+    <%= form.submit 'Upload file' %>
+  <% end %>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
