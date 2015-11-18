@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Buyer < ActiveRecord::Base
   # Overrides the find_by_name method to create the new buyer if
   # there are no other with the name passed as parameter
