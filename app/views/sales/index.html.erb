@@ -14,19 +14,17 @@
 <table id="sales" class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:buyer_id) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:price) %></th>
-      <th><%= model_class.human_attribute_name(:quantity) %></th>
-      <th><%= model_class.human_attribute_name(:supplier_id) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th><%= t 'sales.buyer.id' %></th>
+      <th><%= t 'sales.description' %></th>
+      <th><%= t 'sales.price' %></th>
+      <th><%= t 'sales.quantity' %></th>
+      <th><%= t 'sales.supplier.id' %></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @sales.each do |sale| %>
       <tr>
-        <td><%= link_to sale.id, sale_path(sale) %></td>
         <td><%= sale.buyer.name %></td>
         <td><%= sale.description %></td>
         <td><%= sale.price %></td>

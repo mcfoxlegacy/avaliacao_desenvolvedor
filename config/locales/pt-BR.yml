@@ -137,6 +137,8 @@ pt-BR:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    links:
+      destroy: 'Remover'
   number:
     currency:
       format:
@@ -211,3 +213,13 @@ pt-BR:
     success: 'Arquivo importado com sucesso.'
     error: 'Problema ao realizar o envio do arquivo. Por favor entre em contato com o administrador do site.'
     invalid_format: 'Formato inválido! Somente arquivos TXT são permitidos.'
+
+  sales:
+    buyer:
+      id: 'Comprador'
+    description: 'Descrição'
+    price: 'Preço'
+    quantity: 'Quantidade'
+    supplier:
+      id: 'Fornecedor'
+    
