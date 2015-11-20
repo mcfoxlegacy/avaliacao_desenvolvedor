@@ -26,3 +26,9 @@ erro deve ser exibida para o usuário
     | PDF  |
     | JPG  |
     | PNG  |
+
+  Cenário: Se enviar um arquivo TXT inválido, devo ver uma mensagem de erro
+    Dado que estou na tela inicial
+    Quando enviar um arquivo TXT inválido
+    Então não vejo nenhuma venda registrada
+    E devo ver uma mensagem de erro de "arquivo inválido"

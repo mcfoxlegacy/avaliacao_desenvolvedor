@@ -14,6 +14,11 @@ Quando(/^realizar o upload de um arquivo "(.*?)"$/) do |format|
               File.absolute_path(FILES[format.downcase.to_sym]))
 end
 
+Quando(/^enviar um arquivo TXT (inválido|válido)$/) do |validity|
+  attach_file('sale_upload_file',
+              File.absolute_path(FILES[validity.to_sym]))
+end
+
 ###### ENTAO ######
 
 Então(/^não vejo nenhuma venda registrada$/) do
