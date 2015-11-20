@@ -16,6 +16,16 @@ eof
     "João Silva	R$10 off R$20 of food	10.0	2	987 Fake St	Bob's Pizza"
   end
 
+  def blanck_file
+    ''
+  end
+
+  def invalid_file
+    <<eof
+Comprador	descrição	Preço Uniário	Quantidade	Endereço	Fornecedor
+eof
+  end
+
   def test_import
     sale = Sale.new
     sale.import(line)
@@ -35,5 +45,19 @@ eof
     sale = Sale.last
     assert_equal('Snake Plissken', sale.buyer.name)
     assert_equal('R$20 Sneakers for R$5', sale.description)
+  end
+
+  def test_error_import_blanck_file
+    sales_count = Sale.all.count
+    exception = assert_raise(Exception) { Sale.import_file(blanck_file) }
+    assert_equal(sales_count, Sale.all.count)
+    assert_equal('Invalid file', exception.message)
+  end
+
+  def test_error_import_invalid_file
+    sales_count = Sale.all.count
+    exception = assert_raise(Exception) { Sale.import_file(blanck_file) }
+    assert_equal(sales_count, Sale.all.count)
+    assert_equal('Invalid file', exception.message)
   end
 end
