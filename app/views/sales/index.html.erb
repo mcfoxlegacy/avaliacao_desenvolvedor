@@ -33,8 +33,6 @@
         <td><%= sale.quantity %></td>
         <td><%= sale.supplier.name %> - <%= sale.supplier.address%></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_sale_path(sale), :class => 'btn btn-primary btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       sale_path(sale),
                       :method => :delete,
@@ -45,7 +43,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_sale_path,
-            :class => 'btn btn-primary' %>
