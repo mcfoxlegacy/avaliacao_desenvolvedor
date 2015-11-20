@@ -222,4 +222,10 @@ pt-BR:
     quantity: 'Quantidade'
     supplier:
       id: 'Fornecedor'
+    destroy_message: 'Você tem certeza?'
+    file_to_upload: 'Arquivo TXT com as informações de vendas'
+    import_button: 'Importar'
     
+  will_paginate:
+    previous_label: Anterior
+    next_label: Próxima
