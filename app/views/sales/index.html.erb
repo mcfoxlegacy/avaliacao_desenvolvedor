@@ -7,7 +7,7 @@
   <%= form_for :sale, url: sales_path, html: { multipart: true } do |form| %>
     <%= form.label :upload_file, 'File to Upload' %>
     <%= form.file_field :upload_file %>
-    <%= form.submit 'Upload file' %>
+    <%= form.submit 'Upload file', id: 'button_file_upload' %>
   <% end %>
 </div>
 

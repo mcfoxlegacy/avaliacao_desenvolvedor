@@ -10,13 +10,15 @@ end
 ###### QUANDO ######
 
 Quando(/^realizar o upload de um arquivo "(.*?)"$/) do |format|
-  attach_file('sale_upload_file',
-              File.absolute_path(FILES[format.downcase.to_sym]))
+  page.attach_file('sale_upload_file',
+                   File.absolute_path(FILES[format.downcase.to_sym]))
+  find(:css, '#button_file_upload').click
 end
 
 Quando(/^enviar um arquivo TXT (inválido|válido)$/) do |validity|
-  attach_file('sale_upload_file',
-              File.absolute_path(FILES[validity.to_sym]))
+  page.attach_file('sale_upload_file',
+                   File.absolute_path(FILES[validity.to_sym]))
+  find(:css, '#button_file_upload').click
 end
 
 ###### ENTAO ######
@@ -35,6 +37,16 @@ Então(/^não vejo nenhuma venda registrada$/) do
     result.first.text == ''
 end
 
-Então(/^devo ver uma mensagem de erro de "(.*?)"$/) do |message|
-  page.has_content? MESSAGES[message.to_sym]
+Então(/^devo ver uma mensagem(?: de erro|) de "(.*?)"$/) do |message|
+  fail "Message not found on the page" unless
+    page.has_content? MESSAGES[message.gsub(' ', '_').to_sym]
+end
+
+Então(/^devo ver os seguintes valores cadastrados:$/) do |table|
+  table.raw.each do |row|
+    row.each do |column|
+      fail "'#{column}' not found on the page" unless
+        page.has_content? column
+    end
+  end
 end

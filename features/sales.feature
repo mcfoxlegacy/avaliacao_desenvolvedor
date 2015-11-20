@@ -27,8 +27,18 @@ erro deve ser exibida para o usuário
     | JPG  |
     | PNG  |
 
-  Cenário: Se enviar um arquivo TXT inválido, devo ver uma mensagem de erro
+  Cenário: Se enviar um arquivo TXT inválido, devo ver uma mensagem de erro e nenhum registro deve ser importado
     Dado que estou na tela inicial
     Quando enviar um arquivo TXT inválido
     Então não vejo nenhuma venda registrada
     E devo ver uma mensagem de erro de "arquivo inválido"
+
+  Cenário: Se enviar um arquivo TXT válido, devo ver uma mensagem de sucesso e os registro importados
+    Dado que estou na tela inicial
+    Quando enviar um arquivo TXT válido
+    Então devo ver uma mensagem de "sucesso ao enviar o arquivo"
+    E devo ver os seguintes valores cadastrados:
+    | Joao Silva     | R$10 off R$20 of food    | 10.0 | 2 | 987 Fake St   | Bob's Pizza            |
+    | Amy Pond       | R$30 of awesome for R$10 | 10.0 | 5 | 456 Unreal Rd | Tom's Awesome Shop     |
+    | Marty McFly    | R$20 Sneakers for R$5    |  5.0 | 1 | 123 Fake St   | Sneaker Store Emporium |
+    | Snake Plissken | R$20 Sneakers for R$5    |  5.0 | 4 | 123 Fake St   | Sneaker Store Emporium |
