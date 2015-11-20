@@ -16,3 +16,13 @@ erro deve ser exibida para o usuário
     Dado que estou na tela inicial
     Então não vejo nenhuma venda registrada
 
+  Esquema do Cenário: Não posso realizar o upload de arquivos que não sejam txt
+    Dado que estou na tela inicial
+    Quando realizar o upload de um arquivo "<TIPO>"
+    Então devo ver uma mensagem de erro de "formato inválido"
+
+    Exemplos:
+    | TIPO |
+    | PDF  |
+    | JPG  |
+    | PNG  |

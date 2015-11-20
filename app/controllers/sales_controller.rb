@@ -25,10 +25,28 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.json
   def create
-    Sale.import_file(params[:sale][:upload_file].read)
-
+    accepted_formats = ['.txt']
+    @success = true
+    file = params[:sale][:upload_file]
+    if accepted_formats.include? File.extname(file.original_filename)
+      begin
+        Sale.import_file(file.read)
+        @message = I18n.t('file.success')
+      rescue
+        @success = false
+        @message = I18n.t('file.error')
+      end
+    else
+      @success = false
+      @message = I18n.t('file.invalid_format')
+    end
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: 'The file was successfully imported.' }
+      if @success
+        format.html { redirect_to sales_url, notice: @message }
+      else
+        flash[:error] = @message
+        format.html { redirect_to sales_url }
+      end
     end
   end
 
@@ -57,13 +75,14 @@ class SalesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sale
-      @sale = Sale.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sale_params
-      params.require(:sale).permit(:upload_file)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sale
+    @sale = Sale.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sale_params
+    params.require(:sale).permit(:upload_file)
+  end
 end

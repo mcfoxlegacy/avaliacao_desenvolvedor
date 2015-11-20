@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AvaliacaoDesenvolvedor</title>
+  <title>Avaliação Desenvolvedor</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <% if flash[:error] %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= t 'error' %>:</h3>
+    </div>
+    <div class="panel-body">
+      <%= flash[:error] %>
+    </div>
+  </div>
+  <% end %>
+
+  <% if flash[:notice] %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= t 'notice' %>:</h3>
+    </div>
+    <div class="panel-body">
+      <%= flash[:notice] %>
+    </div>
+  </div>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
