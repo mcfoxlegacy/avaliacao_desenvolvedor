@@ -1,3 +1,38 @@
+# Instalação
+
+Após clonar esse repositório e acessar a pasta do projeto, instale as dependências
+
+```
+bundle install
+```
+
+Crie o banco de dados
+
+```
+bundle exec rake db:create
+```
+
+Execute as migrações
+
+```
+bundle exec rake db:migrate
+```
+
+Execute os testes:
+
+```
+bundle exec rake test
+bundle exec rake cucumber
+```
+
+Inicie o servidor de desenvolvimento para acessar a aplicação no seu navegador
+
+```
+bundle exec rails server
+```
+
+Acesse o site utilizando o endereço: http://localhost:3000
+
 # Desafio de programação 1
 A idéia deste desafio é nos permitir avaliar melhor as habilidades de candidatos à vagas de programador, de vários níveis.
 
