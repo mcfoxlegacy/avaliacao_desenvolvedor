@@ -37,6 +37,7 @@ erro deve ser exibida para o usuário
     Dado que estou na tela inicial
     Quando enviar um arquivo TXT válido
     Então devo ver uma mensagem de "sucesso ao enviar o arquivo"
+    E devo ver a receita total bruta igual a "R$ 95,00"
     E devo ver os seguintes valores cadastrados:
     | Joao Silva     | R$10 off R$20 of food    | 10.0 | 2 | 987 Fake St   | Bob's Pizza            |
     | Amy Pond       | R$30 of awesome for R$10 | 10.0 | 5 | 456 Unreal Rd | Tom's Awesome Shop     |

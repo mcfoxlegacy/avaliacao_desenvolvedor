@@ -30,18 +30,19 @@ class SalesController < ApplicationController
     file = params[:sale][:upload_file]
     if accepted_formats.include? File.extname(file.original_filename)
       begin
-        Sale.import_file(file.read)
-        @message = I18n.t('file.success')
+        @total_revenue = Sale.import_file(file.read)
+        @message = 'file.success'
       rescue
         @success = false
-        @message = I18n.t('file.error')
+        @message = 'file.error'
       end
     else
       @success = false
-      @message = I18n.t('file.invalid_format')
+      @message = 'file.invalid_format'
     end
     respond_to do |format|
       if @success
+        flash[:total_revenue] = @total_revenue
         format.html { redirect_to sales_url, notice: @message }
       else
         flash[:error] = @message

@@ -38,8 +38,13 @@ Então(/^não vejo nenhuma venda registrada$/) do
 end
 
 Então(/^devo ver uma mensagem(?: de erro|) de "(.*?)"$/) do |message|
-  fail "Message not found on the page" unless
+  fail 'Message not found on the page' unless
     page.has_content? MESSAGES[message.gsub(' ', '_').to_sym]
+end
+
+Então(/^devo ver a receita total bruta igual a "(.*?)"$/) do |revenue|
+  fail 'Total revenues not found on the screen' unless
+    page.has_content? revenue
 end
 
 Então(/^devo ver os seguintes valores cadastrados:$/) do |table|

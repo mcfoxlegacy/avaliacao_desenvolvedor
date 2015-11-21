@@ -14,7 +14,7 @@
       <h3 class="panel-title"><%= t 'error' %>:</h3>
     </div>
     <div class="panel-body">
-      <%= flash[:error] %>
+      <%= t flash[:error] %>
     </div>
   </div>
   <% end %>
@@ -25,7 +25,7 @@
       <h3 class="panel-title"><%= t 'notice' %>:</h3>
     </div>
     <div class="panel-body">
-      <%= flash[:notice] %>
+      <%= t flash[:notice] %><%= number_to_currency(flash[:total_revenue]) if flash[:total_revenue] %>
     </div>
   </div>
   <% end %>

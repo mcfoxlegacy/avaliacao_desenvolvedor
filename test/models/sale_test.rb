@@ -60,4 +60,8 @@ eof
     assert_equal(sales_count, Sale.all.count)
     assert_equal('Invalid file', exception.message)
   end
+
+  def test_import_return_total_revenue
+    assert_equal(95.0, Sale.import_file(file))
+  end
 end

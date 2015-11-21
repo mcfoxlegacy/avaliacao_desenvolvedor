@@ -210,7 +210,7 @@ pt-BR:
     pm: ''
 
   file:
-    success: 'Arquivo importado com sucesso.'
+    success: 'Arquivo importado com sucesso. A receita total foi de: '
     error: 'Problema ao realizar o envio do arquivo. Por favor entre em contato com o administrador do site.'
     invalid_format: 'Formato inválido! Somente arquivos TXT são permitidos.'
 
@@ -227,5 +227,8 @@ pt-BR:
     import_button: 'Importar'
     
   will_paginate:
-    previous_label: Anterior
-    next_label: Próxima
+    previous_label: '<<'
+    next_label: '>>'
+
+  error: 'Erro'
+  notice: 'Aviso'
