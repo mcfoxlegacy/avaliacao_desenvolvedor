@@ -1,0 +1,17 @@
+<h2>Lista de Pedidos</h2>
+<%if @orders.any? %>
+  <% @orders.each do |order| %>
+    <label for="buyer">Comprador:</label>
+    <%= order.buyer %><br>
+    <label for="description">Descrição:</label>
+    <%= order.description %><br>
+    <label for="unity_price">Preço Unitário:</label>
+    <%= order.unity_price %><br>
+    <label for="quantity">Quantidade:</label>
+    <%= order.quantity %><br>
+    <label for="address">Endereço:</label>
+    <%= order.address %><br>
+    <label for="customer">Fornecedor:</label>
+    <%= order.customer %><br>
+  <% end %>
+<% end %>

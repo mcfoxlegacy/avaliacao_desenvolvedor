@@ -1,0 +1,10 @@
+<h2>Novo Pedido</h2>
+<%= simple_form_for @order do |f| %>
+<%= f.input :buyer, label: 'Comprador:', placeholder: 'Comprador...' %>
+<%= f.input :description, label: 'Descrição:', placeholder: 'Descrição...' %>
+<%= f.input :unity_price, label: 'Preço Unitário:', placeholder: 'Preço...' %>
+<%= f.input :quantity, label: 'Quantidade:', placeholder: 'Quantidade...' %>
+<%= f.input :address, label: 'Endereço:', placeholder: 'Endereço...' %>
+<%= f.input :customer, label: 'Fornecedor:', placeholder: 'Fornecedor...' %>
+<%= f.button :submit, 'Cadastrar' %>
+<% end %>
