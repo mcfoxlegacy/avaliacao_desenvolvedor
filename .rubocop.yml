@@ -1,0 +1,17 @@
+Documentation:
+  Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+AllCops:
+  Exclude:
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'Rakefile'
+Rails:
+  Enabled: true
