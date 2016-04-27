@@ -1,0 +1,4 @@
+<%= form_tag({action: :create}, multipart: true) do %>
+  <%= file_field_tag 'register_file' %>
+  <%= button_tag 'Save', type: :submit %>
+<% end %>
