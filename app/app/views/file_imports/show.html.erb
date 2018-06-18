@@ -4,8 +4,32 @@
         Nome do arquivo: <%= @file_import.filename %>
       </div>
       <div class="panel-body">
-        <%= raw @file_import.content %>
+        <%= @file_import.content %>
       </div>
     </div>
   <h3>Dados importados:</h3>
-</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Comprador</th>
+        <th>Descrição</th> 
+        <th>Preço Unitário</th>
+        <th>Quantidade</th>
+        <th>Endereço</th>
+        <th>Fornecedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= @data_imported.each do |data_imported| %>  
+        <tr>
+          <td><%= data_imported.client %></td>
+          <td><%= data_imported.description %></td>
+          <td><%= data_imported.unit_price %></td>
+          <td><%= data_imported.quantity %></td>
+          <td><%= data_imported.address %></td>
+          <td><%= data_imported.supplier %></td>   
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+</div> 
