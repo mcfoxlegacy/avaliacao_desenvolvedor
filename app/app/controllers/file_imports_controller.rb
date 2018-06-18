@@ -11,30 +11,34 @@ class FileImportsController < ApplicationController
   
   def create
     @file_import = FileImport.new
-    @file_import.filename = file_import_params[:file].original_filename
-    @file_import.content = File.read(file_import_params[:file].tempfile)
-    first_line = true
-    
-    if @file_import.save
-      @file_import.content.each_line do |record|
-        if first_line
-          first_line = false
-        else
-          data = record.chomp.split("\t")
-          Sale.create(
-            client: data[0],
-            description: data[1],
-            unit_price: data[2],
-            quantity: data[3],
-            address: data[4],
-            supplier: data[5],
-            file_import: @file_import
-          )
+    if file_import_params[:file].present?
+      @file_import.filename = file_import_params[:file].original_filename
+      @file_import.content = File.read(file_import_params[:file].tempfile)
+      first_line = true
+      
+      if @file_import.save
+        @file_import.content.each_line do |record|
+          if first_line
+            first_line = false
+          else
+            data = record.chomp.split("\t")
+            Sale.create(
+              client: data[0],
+              description: data[1],
+              unit_price: data[2],
+              quantity: data[3],
+              address: data[4],
+              supplier: data[5],
+              file_import: @file_import
+            )
+          end
         end
+      redirect_to @file_import
+      else
+        render :index
       end
-    redirect_to @file_import
     else
-      render :index
+      render :index, status: :unprocessable_entity 
     end
   end
   
