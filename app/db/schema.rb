@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_003443) do
+ActiveRecord::Schema.define(version: 2018_06_18_004139) do
 
   create_table "file_imports", force: :cascade do |t|
     t.string "filename"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2018_06_18_003443) do
     t.string "supplier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "file_import_id"
+    t.index ["file_import_id"], name: "index_sales_on_file_import_id"
   end
 
 end
