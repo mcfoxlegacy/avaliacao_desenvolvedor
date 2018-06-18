@@ -1,24 +1,27 @@
-# README
+# Instalation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone the project, open it's folder and run bundle install:
 
-Things you may want to cover:
+    bundle install
 
-* Ruby version
+After all the gems got installed, run the migrations:
 
-* System dependencies
+    rake db:migrate
 
-* Configuration
+Now you need to run the server:
 
-* Database creation
+    rails server
 
-* Database initialization
+To open the page follow this [link](http://localhost:3000) or on your browser go to this address:
 
-* How to run the test suite
+    http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
+# Utilization
+Click on the select file button, select your file and open it.
+Press the "Import new file" button.
+The file will be uploaded and parsed.
+You will se a page with the data of the file and the imported data.
 
-* Deployment instructions
-
-* ...
+You can get back to the main page with the button on the bottom.
+On the main page, you will see the list of other files that has been uploaded.
+Each file has two buttons, one you can open again that file and see the results and another to delete the data.
