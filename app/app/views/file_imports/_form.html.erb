@@ -1,0 +1,7 @@
+<%= form_for FileImport.new, url: file_imports_path, html: { multipart: true } do |f| %>
+
+  <%= f.file_field :file,  :accept => 'text' %>
+  <br>
+  <%= f.submit 'Importar novo arquivo', :class => "btn btn-success" %>
+
+<% end %>
