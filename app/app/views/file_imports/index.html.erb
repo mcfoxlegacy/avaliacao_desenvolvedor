@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Faça upload de novos arquivos aqui:</div>
+    <div class="panel-body">
+      <%= render "form" %>
+    </div>
+  </div>
+  <h3>Arquivos importados:</h3>
+  <% @file_imports.each do |file_import| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Nome do arquivo: <%= file_import.filename %>
+        <div class="pull-right">
+        <%= link_to 'Visualizar resultados', file_import, class: "btn btn-info btn-xs" %>
+        <%= link_to 'Apagar', file_import, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></div>
+      </div>
+      <div class="panel-body">
+        <%= file_import.content %>
+      </div>
+    </div>
+  <% end %>
+</div>
