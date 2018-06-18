@@ -16,16 +16,16 @@ class FileImportsController < ApplicationController
         if first_line
           first_line = false
         else
-          @imported_sale = Sale.new
           data = record.chomp.split("\t")
-          @imported_sale.client = data[0]
-          @imported_sale.description = data[1]
-          @imported_sale.unit_price = data[2]
-          @imported_sale.quantity = data[3]
-          @imported_sale.address = data[4]
-          @imported_sale.supplier = data[5]
-          @imported_sale.file_import = @imported_file
-          @imported_sale.save
+          Sale.create(
+            client: data[0],
+            description: data[1],
+            unit_price: data[2],
+            quantity: data[3],
+            address: data[4],
+            supplier: data[5],
+            file_import: @imported_file
+          )
         end
       end
     redirect_to @imported_file
