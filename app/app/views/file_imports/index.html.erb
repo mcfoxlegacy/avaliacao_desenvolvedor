@@ -6,13 +6,13 @@
     </div>
   </div>
   <h3>Arquivos importados:</h3>
-  <%= @file_imports.each do |file_import| %>
+  <% @file_imports.each do |file_import| %>
     <div class="panel panel-default">
       <div class="panel-heading">
         Nome do arquivo: <%= file_import.filename %>
-        <div class="float-right">
-        <%= link_to 'Visualizar resultados', file_import %>
-        <%= link_to 'Apagar', file_import, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        <div class="pull-right">
+        <%= link_to 'Visualizar resultados', file_import, class: "btn btn-info btn-xs" %>
+        <%= link_to 'Apagar', file_import, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></div>
       </div>
       <div class="panel-body">
         <%= file_import.content %>
