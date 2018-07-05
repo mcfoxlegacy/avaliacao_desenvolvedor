@@ -1,0 +1,27 @@
+pt-BR:
+  labels:
+    new: Enviar Arquivo
+    no_results: Nenhum registro encontrado
+    upload_file: Enviar Arquivo
+    file: Escolher Arquivo
+  table_headers:
+    customer: Comprador
+    description: Descrição
+    unit_price: Preço Unitário
+    quantity: Quantidade
+    address: Endereço
+    vendor: Fornecedor
+    actions: Ações
+  headings:
+    new_file: Enviar Anexo
+    title_site: Sistema de Receitas
+    list_sales: Lista de Receitas
+  buttons:
+    send: Enviar
+  sales:
+    new:
+      success: "Dados salvos com sucesso. Valor bruto total importado de: %{value}"
+    delete:
+      success: Registro deletado com sucesso   
+  warnings:
+    question: Tem certeza que deseja excluir?

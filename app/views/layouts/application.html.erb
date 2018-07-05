@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Avaliacao de Desenvolvedor</title>
+    <title><%= t('headings.title_site') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   </head>
 
   <body>
+    <div id="notice">
+      <% if notice %>
+        <p class="notice notice__confirm">
+          <i class="notice__icon material-icons">check_circle_outline</i> <%= notice %>
+        </p>
+      <% end %>
+    </div>
     <nav>
       <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">Sistema de Receitas</a>
+        <a href="<%= sales_path %>" class="brand-logo"><%= t('headings.title_site') %></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><%= link_to 'Listar', sales_path  %></li>
           <li><%= link_to 'Enviar Arquivo', new_sale_path  %></li>
