@@ -39,3 +39,15 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="fixed-action-btn">
+  <%= link_to new_sale_path, { 'data-position':'top', 'data-tooltip':t('labels.upload_file'), class: 'btn-floating btn-large waves-effect waves-light cyan tooltipped'} do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>

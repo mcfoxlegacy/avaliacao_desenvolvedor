@@ -22,12 +22,11 @@
         </p>
       <% end %>
     </div>
-    <nav>
+    <nav class="cyan">
       <div class="nav-wrapper container">
         <a href="<%= sales_path %>" class="brand-logo"><%= t('headings.title_site') %></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><%= link_to 'Listar', sales_path  %></li>
-          <li><%= link_to 'Enviar Arquivo', new_sale_path  %></li>
+          <li><%= link_to t('menu.inicio'), sales_path  %></li>
         </ul>
       </div>
     </nav>

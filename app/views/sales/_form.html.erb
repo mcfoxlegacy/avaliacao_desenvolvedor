@@ -1,6 +1,6 @@
 <%= form_tag import_sales_path, method: :post, local: true, multipart: true do %>
   <div class="col l6 s12 file-field input-field offset-l3">
-    <div class="btn brn-flat white-text waves-effect waves-light">
+    <div class="btn brn-flat white-text waves-effect waves-light grey">
       <span><%= t('labels.file') %></span>
       <%= file_field_tag :file, required: true, accept: 'text/plain' %>
     </div>
@@ -10,7 +10,7 @@
   </div>
   <div class="row">
     <div class="col l6 offset-l3 s12 center-align">
-      <button class="btn btn-large red white-text waves-effect waves-light"><%= t('buttons.send') %></button>
+      <button class="btn btn-large cyan white-text waves-effect waves-light"><%= t('buttons.send') %></button>
     </div>
   </div>
 <% end %>

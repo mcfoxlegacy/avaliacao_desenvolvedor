@@ -4,6 +4,8 @@ pt-BR:
     no_results: Nenhum registro encontrado
     upload_file: Enviar Arquivo
     file: Escolher Arquivo
+  menu:
+    inicio: Início
   table_headers:
     customer: Comprador
     description: Descrição
