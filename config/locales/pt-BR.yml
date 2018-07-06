@@ -4,6 +4,16 @@ pt-BR:
     no_results: Nenhum registro encontrado
     upload_file: Enviar Arquivo
     file: Escolher Arquivo
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+      models:
+        sale:
+          attributes:
+            customer:
+              required: Campo Comprador é obrigatório
+              blank: Campo Comprador não pode ficar em branco
   menu:
     inicio: Início
   table_headers:
