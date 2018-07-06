@@ -1,0 +1,37 @@
+.notice {
+    animation: 7s fadeout forwards, 1s fadein;
+  
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 23;
+    margin: 0;
+    padding: 20px;
+    transform: translate(-50%, 0%);
+    font: {
+      weight: 400;
+      size: 20px;
+    }
+    color: #FFF;
+    text-transform: none;
+    border-radius: 4px 4px 0 0;
+    &__icon {
+      font-size: 26px;
+      position: relative;
+      top: 4px;
+      margin-right: 5px;
+    }
+    &__confirm {
+      background: #5cb85c;
+    }
+  }
+  
+  @keyframes fadein {
+      0%   { bottom: -100%; }
+      100% { bottom: 0; }
+  }
+  
+  @keyframes fadeout {
+      80% { bottom: 0; }
+      100% { bottom: -100%; }
+  }

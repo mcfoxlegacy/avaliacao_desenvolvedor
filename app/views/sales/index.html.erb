@@ -1,0 +1,53 @@
+<h3><%= t('headings.list_sales') %></h3>
+<table>
+  <thead>
+    <tr>
+      <th><%= t('table_headers.customer')%></th>
+      <th><%= t('table_headers.description')%></th>
+      <th><%= t('table_headers.unit_price')%></th>
+      <th><%= t('table_headers.quantity')%></th>
+      <th><%= t('table_headers.address')%></th>
+      <th><%= t('table_headers.vendor')%></th>
+      <th><%= t('table_headers.actions')%></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @sales.empty? %>
+      <tr>
+        <td colspan="8" class="center-align" style="padding: 15px 0">
+          <%= t('labels.no_results') %><br/>
+          <a class="btn btn-primary text-light" href="<%= new_sale_path %>"><%= t('labels.new') %></a>
+        </td>
+      </tr>
+    <% else %>
+      <% @sales.each do |sale| %>
+        <tr>
+          <td><%= sale.customer.name %></td>
+          <td><%= sale.description %></td>
+          <td><%= number_to_currency(sale.unit_price, unit:'R$ ', precision: 2, separator: ",", delimiter: ".") %></td>
+          <td><%= sale.quantity %></td>
+          <td><%= sale.address.name %></td>
+          <td><%= sale.vendor.name %></td>
+          <td>
+            <%= link_to sale_path(sale), method: :delete, data: {confirm: t('warnings.question')}, class: "btn btn-flat red white-text waves-effect waves-light", remote: true do %>
+              <i class="material-icons">clear</i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="fixed-action-btn">
+  <%= link_to new_sale_path, { 'data-position':'top', 'data-tooltip':t('labels.upload_file'), class: 'btn-floating btn-large waves-effect waves-light cyan tooltipped'} do %>
+    <i class="material-icons">add</i>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+</script>
